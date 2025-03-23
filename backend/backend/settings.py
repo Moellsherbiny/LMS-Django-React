@@ -30,6 +30,7 @@ DEBUG =  True
 
 ALLOWED_HOSTS = ["*"]
 
+CLOUDMERSIVE_API_KEY = "9d0005d0-e7ce-4c97-9fca-690174d60e55"
 
 # Application definition
 
