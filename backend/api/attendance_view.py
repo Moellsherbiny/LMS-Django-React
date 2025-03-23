@@ -9,8 +9,6 @@ from .serializers import BarcodeImageSerializer
 from rest_framework.permissions import AllowAny
 from .models import StudentID, Attendance
 from django.shortcuts import get_object_or_404
-from rest_framework import status
-
 def extract_barcode(image):
     """ استخراج الباركود من صورة """
     
@@ -54,6 +52,6 @@ class BarcodeScannerView(APIView):
                 barcode=barcode_data[0],
                 method="scan"
             )
-            return Response({"message": "Attendance recorded", "barcode": barcode_data}, status=status.HTTP_201_CREATED)
+            return Response({"barcodes": barcode_data}, status=200)
         
         return Response(serializer.errors, status=400)
