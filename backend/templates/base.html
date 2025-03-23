@@ -1,0 +1,127 @@
+<html lang="ar" dir="rtl">
+  <head>
+    <title>{% block title %}EduSparkle{% endblock %}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Tajawal:wght@200;300;400;500;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <!-- CSS only -->
+    <style>
+      /* إعداد خلفية الصفحة */
+      body {
+        background: radial-gradient(circle at top, #142850, #1a1a2e);
+        color: white;
+        font-family: "Tajawal", sans-serif;
+        text-align: center;
+        direction: rtl;
+      }
+
+      /* مركز تسجيل الدخول */
+      .login-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+
+      /* تنسيق البطاقة */
+      .login-card {
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        border-radius: 15px;
+        padding: 30px;
+        width: 350px;
+        text-align: center;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+      }
+
+      /* تنسيق الشعار */
+      .logo {
+        font-size: 28px;
+        font-weight: bold;
+        color: #ffd700;
+      }
+
+      .logo span {
+        color: #ff4d6d;
+      }
+
+      /* تنسيق العناوين */
+      h3 {
+        font-size: 18px;
+        margin-bottom: 20px;
+      }
+
+      /* تنسيق الحقول */
+      .form-group {
+        font-family: "Tajawal", sans-serif;
+        text-align: right;
+        margin-bottom: 15px;
+      }
+
+      label {
+        display: block;
+        font-size: 14px;
+        color: #ffd700;
+        margin-bottom: 5px;
+        
+      }
+      p{
+        align-items: start;
+        text-align: right;
+      }
+      input {
+        width: 100%;
+        padding: 10px;
+        border-radius: 8px;
+        border: none;
+        outline: none;
+        background: rgba(255, 255, 255, 0.2);
+        color: white;
+        font-size: 16px;
+      }
+      .errorlist {
+        color: yellow;
+      }
+      /* زر تسجيل الدخول */
+      .btn-login {
+        background: linear-gradient(90deg, #ff4d6d, #ffd700);
+        color: white;
+        font-size: 16px;
+        padding: 10px;
+        border: none;
+        border-radius: 8px;
+        width: 100%;
+        cursor: pointer;
+      }
+    </style>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+      crossorigin="anonymous"
+    />
+
+    <!-- JS, Popper.js, and jQuery -->
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+      integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    {% block content %} {% endblock %}
+  </body>
+</html>

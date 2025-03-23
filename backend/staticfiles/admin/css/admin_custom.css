@@ -1,0 +1,10 @@
+/* Change header background color */
+#header {
+  background-color: #400 !important;
+}
+
+/* Change text color in header */
+#header .module h1,
+#header a {
+  color: #ffffff !important;
+}

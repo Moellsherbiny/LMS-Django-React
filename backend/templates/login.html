@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="login-container">
+    <div class="login-card">
+        <h2 class="logo">Edu<span>Sparkle</span></h2>        
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn-login">تسجيل الدخول</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

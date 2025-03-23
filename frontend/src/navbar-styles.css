@@ -1,0 +1,133 @@
+:root {
+  --primary-color: #0f2e63; /* Dark navy */
+  --secondary-color: #ffd500; /* Yellow */
+  --accent-color: #ff6b8a; /* Pink */
+  --dark-blue: #081a3c; /* Hero navy */
+  --light-bg: #f8f9fa;
+  --text-color: #343a40;
+  --white: #ffffff;
+  --border-color: rgba(0, 0, 0, 0.1);
+}
+
+.public-navbar {
+  direction: rtl;
+  font-family: "Tajawal", sans-serif;
+  transition: all 0.3s ease-in-out;
+  padding: 0.8rem 1rem;
+}
+
+.navbar-scrolled {
+  background-color: var(--white) !important;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  padding: 0.5rem 1rem;
+}
+
+.brand-logo {
+  display: flex;
+  align-items: center;
+}
+.logo-icon {
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(135deg, #ff6b8a, #b50042); /* Adjusted */
+  color: white;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  margin-left: 10px;
+  box-shadow: 0 0 40px rgba(255, 255, 255, 0.5); /* Adds contrast */
+}
+
+.logo-text {
+  font-size: 1.5rem;
+  font-weight: 700;
+  background: linear-gradient(
+    to left,
+    #b50042,
+    #ff6b8a
+  ); /* Stronger contrast */
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: 1px 1px 40px rgba(255, 255, 255, 0.6); /* Improves readability */
+}
+
+.public-navbar .nav-link-item {
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  transition: all 0.2s ease-in-out;
+  border-radius: 5px;
+  color: var(--white); /* Default color */
+}
+
+.navbar-scrolled .nav-link-item {
+  color: var(--primary-color) !important; /* Dark navy on scroll */
+}
+
+.public-navbar .nav-link-item:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  transform: translateY(-2px);
+}
+
+.auth-buttons {
+  margin-right: auto;
+}
+
+.login-btn,
+.register-btn {
+  font-weight: 500;
+  border-radius: 5px;
+  transition: all 0.3s ease-in-out;
+}
+
+.login-btn:hover,
+.register-btn:hover {
+  transform: translateY(-2px);
+}
+
+.public-navbar:not(.navbar-scrolled) .login-btn {
+  border-color: var(--white);
+  color: var(--white);
+}
+
+.public-navbar:not(.navbar-scrolled) .register-btn {
+  background-color: var(--white);
+  color: var(--primary-color);
+  border-color: var(--white);
+}
+
+.navbar-scrolled .login-btn {
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+}
+
+.navbar-scrolled .register-btn {
+  background-color: var(--primary-color);
+  color: var(--white);
+}
+
+.btn-link {
+  text-decoration: none;
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  padding: 8px 16px;
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    background-color: white !important; /* Makes background white */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Adds subtle shadow */
+  }
+
+  .navbar .nav-link {
+    color: black !important; /* Ensures links are visible */
+  }
+
+  .logo-text {
+    background: none; /* Removes gradient */
+    color: black !important; /* Ensures the logo text is visible */
+  }
+}
