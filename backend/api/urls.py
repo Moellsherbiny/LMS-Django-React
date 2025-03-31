@@ -2,7 +2,7 @@ from django.contrib import admin
 from django.urls import include, path
 from rest_framework.routers import DefaultRouter
 
-# from .attendance_view import BarcodeScannerView
+from .attendance_view import BarcodeScannerView
 from .views import *
 
 router = DefaultRouter()
@@ -30,5 +30,5 @@ urlpatterns = [
     path('quiz/<int:id>/', StudentQuizDetailAPIView.as_view(), name='student-quiz-detail'),
     path("quiz/<int:quiz_id>/questions/", QuestionListView.as_view(), name="quiz-questions"),
     path("quiz/<int:quiz_id>/submit/", SubmitQuizView.as_view(), name="submit-quiz"),
-    # path("scan/", BarcodeScannerView.as_view(), name="mark_attendance_by_image"),
+    path("scan/", BarcodeScannerView.as_view(), name="mark_attendance_by_image"),
 ]

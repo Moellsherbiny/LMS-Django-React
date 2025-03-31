@@ -23,6 +23,11 @@ class ParentAdmin(admin.ModelAdmin):
     list_display = ('user', 'relationship', 'occupation')
     search_fields = ('user__username', 'user__email')
     list_filter = ('relationship',)
+@admin.register(AproveUser)
+class ParentAdmin(admin.ModelAdmin):
+    list_display = ('user',  'active')
+    search_fields = ('user__username', 'user__email')
+    list_filter = ('active',)
 
 # إدارة المدرسين
 @admin.register(Teacher)

@@ -5,7 +5,7 @@ from rest_framework.views import APIView
 from rest_framework.authtoken.models import Token
 from rest_framework_simplejwt.tokens import RefreshToken
 from django.contrib.auth import authenticate, get_user_model
-from .models import Answer, Enrollment, Question, QuizResult, Student, Course, Assignment, Submission, Quiz
+from .models import Answer, Enrollment, Question, QuizResult, Student, Course, Assignment, Submission, Quiz, AproveUser
 from .permissions import IsStudent
 from .serializers import (
     QuestionSerializer,
@@ -128,7 +128,9 @@ class LoginView(APIView):
             samesite="Lax",
             max_age=24 * 60 * 60  # 1 day
         )
-
+        aproveUser = AproveUser.objects.filter(user=user).first()
+        if not aproveUser or not aproveUser.active:
+            response.data['message'] = "برجاء الانتظار حتي يتم التفعيل من قبل الادارة"
         return response
 # Get Current User API
 class CurrentUserAPIView(APIView):
@@ -138,9 +140,14 @@ class CurrentUserAPIView(APIView):
         if not isinstance(request.user, User):  # التحقق من أن request.user هو كائن User
             return Response({"error": "Authentication failed"}, status=401)
 
-        serializer = UserSerializer(request.user)
-        return Response(serializer.data)
-    
+        response = Response({
+            "user": UserSerializer(request.user).data,
+        })
+        aproveUser = AproveUser.objects.filter(user=request.user).first()
+        if not aproveUser or not aproveUser.active:
+            response.data['message'] = "برجاء الانتظار حتي يتم التفعيل من قبل الادارة"
+        return response
+
 # Logout API
 class LogoutView(APIView):
     """

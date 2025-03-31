@@ -2,7 +2,7 @@
 from django.conf import settings
 from django.contrib.auth import get_user_model
 from rest_framework import serializers
-from .models import Answer, Chapter, Question, QuizResult, Student, Parent, Enrollment, Teacher
+from .models import Answer, Chapter, Question, QuizResult, Student, Parent, Enrollment, Teacher, AproveUser
 
 User = get_user_model()
 
@@ -50,9 +50,9 @@ class RegisterSerializer(serializers.ModelSerializer):
         return user
 
 class UserSerializer(serializers.ModelSerializer):
-    """
-    Serializer to represent user data.
-    """
+    
+    # isAproved = serializers.BooleanField(source='is_active')
+
     class Meta:
         model = User
         fields = ('id', 'username', 'email', 'role', 'first_name', 'last_name', 'is_active','date_joined','date_of_birth','phone', 'address','profile_picture')

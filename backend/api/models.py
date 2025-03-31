@@ -30,6 +30,12 @@ class User(AbstractUser):
     def __str__(self):
         return f"{self.get_full_name()} ({self.role})"
 
+class AproveUser(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='aprove_user')
+    active = models.BooleanField(default=False)
+
+    class Meta:
+        verbose_name_plural = "طلبات التنشيط"
 class Student(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='student_profile', limit_choices_to={'role': 'student'})
     parent = models.ForeignKey('Parent', on_delete=models.SET_NULL, null=True, blank=True, related_name='children')

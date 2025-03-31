@@ -1,7 +1,8 @@
 import { useEffect } from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
-import { isAuth } from "../redux/slices/authSlice";
+import { isAuth, logoutAsync } from "../redux/slices/authSlice";
 import { useSelector, useDispatch } from "react-redux";
+import { Button } from "react-bootstrap";
 
 // الصفحات
 import LandingPage from "../pages/HomePage";
@@ -40,8 +41,27 @@ export const ProtectedRoute = ({ children }) => {
   }
 
   // إعادة التوجيه إذا لم يكن المستخدم مسجل الدخول
-  if (!user) return <Navigate to="/" replace />;
+  if (!user)
+    return <Navigate to="/" replace />;
+  
+  if(user && user.message) {
+    return (
+      <div className="d-flex flex-column justify-content-center align-items-center vh-100">
+        <h1 className="text-center text-primary">مرحبا {user.user.first_name} {user.user.last_name}</h1>
+        <p className="text-center text-primary">{user.message}</p>
+        <Button variant="primary" onClick={() => dispatch(logoutAsync())}>تسجيل الخروج</Button>
+      </div>
+    );
+  }
+  
   return <main>{children}</main>;
+};
+const Activate = () => {
+  return (
+    <div>
+      <h1>Activate</h1>
+    </div>
+  );
 };
 
 const AppRoutes = () => {
@@ -49,6 +69,7 @@ const AppRoutes = () => {
     <Routes>
       {/* المسارات العامة */}
       <Route index element={<LandingPage />} />
+      <Route path="/activate" element={<Activate />} />
       <Route path="*" element={<NotFound />} />
       <Route path="/auth/*" element={<AuthLayout />}>
         <Route index path="login" element={<Login />} />
