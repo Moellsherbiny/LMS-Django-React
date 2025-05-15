@@ -18,7 +18,7 @@ const App = () => {
   const { user } = useSelector((state) => state.auth);
   useEffect(() => {
     dispatch(isAuth()); // Check if user is authenticated on mount
-  }, [dispatch]);
+  }, [dispatch, user]);
   console.log(user);
   
 
